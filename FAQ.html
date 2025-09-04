@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs - Zoyaz'z Epicure</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+    }
+    .faq-section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .faq-toggle {
+      font-size: 24px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .faq-answer {
+      display: none;
+      margin-top: 10px;
+      color: #c40000;
+    }
+    .faq-answer.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2>Frequently Asked <span class="flame-text">Questions</span></h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How far in advance should I book catering services?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We recommend booking catering services at least 2-3 days in advance for small events and 5-7 days for larger events. This ensures we can prepare fresh ingredients and accommodate special requests.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Do you offer vegetarian options?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, while our specialty is authentic northeastern cuisine, we can customize vegetarian platters with Assamese vegetables, lentils, and dairy dishes. Contact us for vegetarian catering options.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What is your delivery area?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We deliver throughout Guwahati via Zomato. Catering covers Guwahati and nearby areas, with extra charges beyond 15 km from our kitchen.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Can you customize the spice level?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely! You can request mild, medium, or extra spicy dishes when placing your order. Just mention it in the special instructions.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Do you provide serving utensils and plates for catering?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, we provide disposable plates, serving spoons, and tissues with catering orders. Premium serving dishes and utensils can be arranged at extra cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        const toggle = question.querySelector('.faq-toggle');
+
+        // Close other FAQs
+        document.querySelectorAll('.faq-item').forEach(item => {
+          if (item !== faqItem) {
+            item.querySelector('.faq-answer').classList.remove('active');
+            item.querySelector('.faq-toggle').textContent = '+';
+          }
+        });
+
+        // Toggle current
+        answer.classList.toggle('active');
+        toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+      });
+    });
+  </script>
+
+</body>
+</html>
