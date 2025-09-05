@@ -1127,4 +1127,20 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #ddd;
 }
 
+@media (max-width: 480px) {
+  .menu-item h3,
+  .menu-item-header h3 {
+    color: #222 !important;
+  }
+
+  .menu-description {
+    color: #555 !important;
+  }
+
+  .menu-price {
+    color: #e63946 !important;
+  }
+}
+
+
 }
