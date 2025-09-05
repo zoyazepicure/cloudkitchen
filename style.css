@@ -1091,6 +1091,20 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+      /* Fix visibility of menu texts on white background */
+  .menu-item h3 {
+    color: #222 !important; /* Dark title */
+  }
+
+  .menu-description {
+    color: #555 !important; /* Darker grey for description */
+  }
+
+  .menu-price {
+    color: #e63946 !important; /* Keep the red price */
+  }
+
 }
 
 .menu-item-header {
