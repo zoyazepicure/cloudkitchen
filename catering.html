@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Zoya'z Epicure Catering</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        img {
+            display: block;
+            margin: 0 auto 20px auto;
+            max-width: 150px;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #d32f2f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html"><img src="logo.png" alt="Zoya'z Epicure Logo" /></a>
+        <h2>Zoya'z Epicure Catering</h2>
+        <form id="whatsappForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" required>
+
+            <label for="date">Date of Event:</label>
+            <input type="date" id="date" required>
+
+            <label for="people">Number of People:</label>
+            <input type="number" id="people" min="1" required>
+
+            <label for="food">Veg or Non-Veg:</label>
+            <select id="food" required>
+                <option value="">Select</option>
+                <option value="Veg">Veg</option>
+                <option value="Non-Veg">Non-Veg</option>
+            </select>
+
+            <button type="submit">Send to WhatsApp</button>
+        </form>
+        <div style="margin: 10%;">
+            <a href="index.html"><button>Home</button></a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let name = document.getElementById('name').value.trim();
+            let address = document.getElementById('address').value.trim();
+            let date = document.getElementById('date').value;
+            let people = document.getElementById('people').value.trim();
+            let food = document.getElementById('food').value;
+
+            if (!name || !address || !date || !people || !food) {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            let text = `Name: ${name}\nAddress: ${address}\nDate of Event: ${date}\nNumber of People: ${people}\nFood Preference: ${food}`;
+            let encodedText = encodeURIComponent(text);
+
+            let whatsappNumber = "918133872736";
+            let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
